@@ -199,7 +199,12 @@ if os.path.isfile('env.py'):
     import env
 ```
 
+### add an admin user
 To set up a app/database admin we need `python3 manage.py createsuperuser`
+
+in settings.py add EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+add ACCOUNT_ and LOGIN_ settings too.
 
 To install the app in Heroku you need:
 
