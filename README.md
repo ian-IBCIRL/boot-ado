@@ -185,7 +185,7 @@ Use `python3 manage.py runserver` to launch web server once the environment vari
 python3 manage.py runserver
 ```
 
-We add the app with `python3 manage.py startapp blog` for example
+Later we can add the app with `python3 manage.py startapp blog` for example
 
 Then we need to migrate the changes to the database etc with `python3 manage.py migrate`
 
@@ -205,6 +205,17 @@ To set up a app/database admin we need `python3 manage.py createsuperuser`
 in settings.py add EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 add ACCOUNT_ and LOGIN_ settings too.
+
+use `cp -r ../.pip-modules/lib/python3.8/site-packages/allauth/templates/* templates/allauth` to copy the baseline allauth html etc to allow modification with prioritised files
+
+the base.html for the site can be obtained from https://getbootstrap.com/
+and the version for this from https://getbootstrap.com/docs/4.6/getting-started/introduction/ with changes to replace the slim version with the full popper version.
+
+once this is setup then we can set up a home page app with 
+`manage.py startapp home`
+
+then we can create and edit index.html in `home/templates/home` and extend base.html 
+
 
 To install the app in Heroku you need:
 
