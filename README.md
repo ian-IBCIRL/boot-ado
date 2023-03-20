@@ -51,6 +51,10 @@ Future Enhancements here
 
 ## Technologies Used
 
+```
+allauth 
+```
+
 * [Back to table of contents](#table-of-contents) 
 * [Back to top of README.md](#boutique-ado) 
 
@@ -144,6 +148,22 @@ Once all is installed, you can record the installed packages to requirements.txt
 with `pip3 freeze > requirements.txt`
 
 and reload them with `pip3 install -r requirements.txt` 
+
+For allauth setup see https://django-allauth.readthedocs.io/en/latest/installation.html 
+
+in settings.py add allauth to INSTALLED_APPS 
+then add AUTHENTICATION_BACKENDS and remove ... from AUTHENTICATION_BACKENDS
+This adds `allauth` specific authentication methods, such as login by e-mail
+
+in TEMPLATES in settings.py
+The request context processor here allows allauth and django itself for
+that matter to access the HTTP request object in our templates.
+It's required because the allauth templates which we see and customize use the request object frequently.
+
+add some INSTALLED_APPS
+
+Then add some urls to the default urls.py file with
+``path('accounts/', include('allauth.urls')),``
 
 ### Initiating the Django project files
 To create the essential manage.py file and the key step in enabling the site to launch
