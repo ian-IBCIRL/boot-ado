@@ -220,6 +220,12 @@ Then we can create and edit index.html in `home/templates/home` and extend base.
 
 To add a favicon.ico to /static, add `<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>` to base.html and `STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]` to settings.py
 
+Do the same for media dirs etc.
+
+### enable fontawesome icon use
+add `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">` to base.html to get icons for menu buttons etc.
+
+
 ### install in Heroku
 
 To install the app in Heroku you need:
