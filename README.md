@@ -208,14 +208,19 @@ add ACCOUNT_ and LOGIN_ settings too.
 
 use `cp -r ../.pip-modules/lib/python3.8/site-packages/allauth/templates/* templates/allauth` to copy the baseline allauth html etc to allow modification with prioritised files
 
-the base.html for the site can be obtained from https://getbootstrap.com/
+The base.html for the site can be obtained from https://getbootstrap.com/
 and the version for this from https://getbootstrap.com/docs/4.6/getting-started/introduction/ with changes to replace the slim version with the full popper version.
 
 once this is setup then we can set up a home page app with 
 `manage.py startapp home`
 
-then we can create and edit index.html in `home/templates/home` and extend base.html 
+Then we can create and edit index.html in `home/templates/home` and extend base.html 
 
+### add a favicon
+
+To add a favicon.ico to /static, add `<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>` to base.html and `STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]` to settings.py
+
+### install in Heroku
 
 To install the app in Heroku you need:
 
