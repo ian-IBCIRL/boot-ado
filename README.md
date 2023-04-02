@@ -226,6 +226,25 @@ Do the same for media dirs etc.
 add `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">` to base.html to get icons for menu buttons etc.
 
 
+### updated database after changing model
+
+```
+python3 manage.py shell
+from products.models import Product
+kdbb = ['kitchen_dining', 'bed_bath']
+clothes = Product.objects.exclude(category__name__in=kdbb)
+clothes.count()
+for item in clothes:
+item.has_sizes = True
+item.save()
+
+# then check with 
+Product.objects.filter(has_sizes=True)
+# and 
+Product.objects.filter(has_sizes=True).count()
+```
+
+
 ### install in Heroku
 
 To install the app in Heroku you need:
