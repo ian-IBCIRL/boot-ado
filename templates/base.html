@@ -12,22 +12,12 @@
     {% endblock %}
 
     {% block extra_meta %}
-    <!-- Set up meta data for SOA lighthouse scoring -->
-    <meta name="author" content="IBCIRL.com">
-    <meta name="description" content="PP5, Killorglin, Kerry, Ireland">
-    <meta name="keywords" content="shopping, Killorglin, Kerry, Ireland">
-
-    <!-- added CSP for responsiveness testing sites rather than chrome addin workaround -->
-    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' ui.dev techsini.com browserstack.com;">
-
     {% endblock %}
 
     {% block corecss %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -44,8 +34,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -109,7 +97,7 @@
                                     {% if grand_total %}
                                     ${{ grand_total|floatformat:2 }}
                                     {% else %}
-                                    €0.00
+                                    $0.00
                                     {% endif %}
                                 </p>
                             </div>
@@ -129,20 +117,28 @@
             </nav>
         </div>
         <div id="delivery-banner" class="row text-center">
-            <!-- move to main-nav -->
             <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on
-                    {% if free_delivery_threshold %}
-                    orders over €{{ free_delivery_threshold|floatformat:2 }}
-                    {% else %}
-                    all orders !!
-                    {% endif %}
-                </h4>
+                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
             </div>
         </div>
     </header>
+
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -152,6 +148,9 @@
     {% endblock %}
 
     {% block postloadjs %}
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
     {% endblock %}
 
 
