@@ -129,8 +129,8 @@
         <div id="delivery-banner" class="row text-center"> <!-- move to main-nav -->
             <div class="col bg-black text-white">
                 <h4 class="logo-font my-1">Free delivery on 
-                    {% if free_shipping_threshold %} 
-                    orders over €{{ free_shipping_threshold|floatformat:2 }}
+                    {% if free_delivery_threshold %} 
+                    orders over €{{ free_delivery_threshold|floatformat:2 }}
                     {% else %}
                     all orders !!
                     {% endif %}
