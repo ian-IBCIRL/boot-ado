@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
-        # Other
+    # Other
     'crispy_forms',
     # 'storages',
 ]
@@ -104,6 +104,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # noqa required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
             'builtins': [
