@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'checkout',
         # Other
     'crispy_forms',
-    'storages',
+    # 'storages',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
