@@ -225,6 +225,17 @@ Do the same for media dirs etc.
 ### enable fontawesome icon use
 add `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">` to base.html to get icons for menu buttons etc.
 
+### load categories fixtures into database
+```
+python3 manage.py loaddata categories
+# should say - Installed 9 object(s) from 1 fixture(s)
+```
+
+### load products fixtures into database
+```
+python3 manage.py loaddata categories
+# should say - Installed 172 object(s) from 1 fixture(s)
+```
 
 ### updated database after changing model
 
@@ -235,8 +246,8 @@ kdbb = ['kitchen_dining', 'bed_bath']
 clothes = Product.objects.exclude(category__name__in=kdbb)
 clothes.count()
 for item in clothes:
-item.has_sizes = True
-item.save()
+    item.has_sizes = True # dont forget tab
+    item.save()
 
 # then check with 
 Product.objects.filter(has_sizes=True)
