@@ -2,7 +2,7 @@
 
 Welcome  
 
-This is the Code Institute student PP5 walkthrough Boutique Ado readme for the project deployed to [https://ib-pp5-ado.herokuapp.com/](https://ib-pp5-ado.herokuapp.com/)
+This is the Code Institute student PP5 walkthrough Boutique Ado readme for the project deployed to [https://ib-boutiqueado.herokuapp.com/](https://ib-boutiqueado.herokuapp.com/)
 
 Note: To open any links in this README in a new browser tab, press CTRL + Click or right click and open in new tab/window.
 
