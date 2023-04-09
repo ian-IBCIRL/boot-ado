@@ -1,1 +1,1 @@
-web: gunicorn ib-boutiqueado.wsgi
+web: gunicorn boutique_ado.wsgi
