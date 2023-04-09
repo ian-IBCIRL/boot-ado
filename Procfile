@@ -1,0 +1,1 @@
+web: gunicorn ib-boutiqueado.wsgi:application
