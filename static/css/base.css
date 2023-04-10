@@ -281,7 +281,7 @@ input[name='q']::placeholder {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
+/* pad the top a bit when navbar is collapsed on mobile - updated */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
@@ -292,6 +292,10 @@ input[name='q']::placeholder {
     }
 
     .display-4.logo-font.text-black {
+        font-size: 2rem;
+    }
+
+    .display-4.logo-font.text-danger {
         font-size: 2rem;
     }
 
